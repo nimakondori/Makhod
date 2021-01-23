@@ -8,7 +8,7 @@ html,
 body {
     height: 100%;
     margin: 0;
-    background: url('/static/images/party.gif') no-repeat center fixed;
+    background: url('/static/images/MarvelousDefiniteIbadanmalimbe-small.gif') no-repeat center fixed;
     background-size: cover;
 }
 
@@ -19,7 +19,7 @@ body {
 }
 
 .container {
-    color: #333;
+    color: #000;
     margin: 0 auto;
     text-align: center;
 }
@@ -44,7 +44,7 @@ li span {
 }
 
 a {
-    color: #333;
+    color: #000;
     text-decoration: none;
 }
 

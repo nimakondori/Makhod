@@ -2,35 +2,44 @@ from datetime import datetime
 
 from pytz import timezone, utc
 
-new_year = datetime.now().year + 1
-india_zone = "Asia/Kolkata"
+anniversary = datetime(2021, 2, 6, 0, 0 ,0).strftime('%Y-%m-%d')
+zone = "Amercia/Vancouver"
 
 
 def count_down(tz: timezone) -> tuple:
     """ Function return days and time to next new year """
 
     tz = timezone(tz)
-    new_year = datetime(datetime.now(tz).year + 1, 1, 1)
+    anniversary = datetime(datetime.now(tz).year, 1, 23, 10, 43, tzinfo=tz)
     today = datetime.now(tz)
+    timedelta = today - anniversary
+    if timedelta.seconds > 0:
+        anniversary = datetime(datetime.now(tz).year + 1, 1, 23,10, 43)
+    print(anniversary)
 
-    day_diff = new_year.day - today.day
+    day_diff = anniversary.day - today.day
     if day_diff < 0:
-        day_diff = 30 + new_year.day - today.day
-    month_diff = 12 - today.month
+        day_diff = 30 + anniversary.day - today.day
+    month_diff = anniversary.month - today.month - 1
+    if month_diff < -1:
+        month_diff += 12
+    elif month_diff == -1:
+        month_diff = 0
+
     total_days = int(day_diff + ((month_diff / 2) * 30) + ((month_diff / 2) * 31))
 
-    hour_diff = new_year.hour - today.hour
+    hour_diff = anniversary.hour - today.hour
     if hour_diff < 0:
-        hour_diff = (new_year.hour - today.hour) + 23
+        hour_diff = (anniversary.hour - today.hour) + 23
 
-    minute_diff = new_year.minute - today.minute
+    minute_diff = anniversary.minute - today.minute
     if minute_diff < 0:
-        minute_diff = 59 + new_year.minute - today.minute
+        minute_diff = 59 + anniversary.minute - today.minute
 
-    sec_diff = new_year.second - today.second
+    sec_diff = anniversary.second - today.second
     if sec_diff < 0:
-        sec_diff = 59 + (new_year.second - today.second)
-
+        sec_diff = 59 + (anniversary.second - today.second)
+    print(month_diff, day_diff, hour_diff, minute_diff, sec_diff)
     return {
         "day": str(total_days).zfill(2),
         "hour": str(hour_diff).zfill(2),
