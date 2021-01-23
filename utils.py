@@ -24,7 +24,6 @@ def count_down(tz: timezone) -> dict:
     print(divmod(timedelta.days * seconds_in_day + timedelta.seconds, 60))
     # print(timedelta)
     duration_in_s = timedelta.total_seconds()
-    # print ("durationn in s == {}".format(duration_in_s))
     total_days = divmod(duration_in_s, 86400)  # Get days (without [0]!)
     hour_diff = divmod(total_days[1], 3600)  # Use remainder of days to calc hours
     minute_diff = divmod(hour_diff[1], 60)  # Use remainder of hours to calc minutes
