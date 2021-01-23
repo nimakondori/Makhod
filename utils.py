@@ -6,7 +6,7 @@ anniversary = datetime(2021, 2, 6, 0, 0 ,0).strftime('%Y-%m-%d')
 zone = "Amercia/Vancouver"
 
 
-def count_down(tz: timezone) -> tuple:
+def count_down(tz: timezone) -> dict:
     """ Function return days and time to next new year """
     ANNIVERSARY_MONTH = 2
     ANNIVERSARY_DAY = 6
