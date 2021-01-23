@@ -8,41 +8,33 @@ zone = "Amercia/Vancouver"
 
 def count_down(tz: timezone) -> tuple:
     """ Function return days and time to next new year """
-
+    ANNIVERSARY_MONTH = 2
+    ANNIVERSARY_DAY = 6
     tz = timezone(tz)
-    anniversary = datetime(datetime.now(tz).year, 1, 23, 10, 43, tzinfo=tz)
-    today = datetime.now(tz)
-    timedelta = today - anniversary
-    if timedelta.seconds > 0:
-        anniversary = datetime(datetime.now(tz).year + 1, 1, 23,10, 43)
-    print(anniversary)
+    print (tz)
+    anniversary = datetime(datetime.now(tz).year, ANNIVERSARY_MONTH, ANNIVERSARY_DAY, 0, 0,0,0)
+    today = datetime.now()
+    if today > anniversary:
+        anniversary = datetime(datetime.now().year + 1, ANNIVERSARY_MONTH ,ANNIVERSARY_DAY ,0, 0, 0,0)
+    # print(anniversary, today)
+    timedelta = anniversary - today
+    seconds_in_day = 24 * 60 * 60
+    print("anniversary ", anniversary)
+    print("today =",today)
+    print(divmod(timedelta.days * seconds_in_day + timedelta.seconds, 60))
+    # print(timedelta)
+    duration_in_s = timedelta.total_seconds()
+    # print ("durationn in s == {}".format(duration_in_s))
+    total_days = divmod(duration_in_s, 86400)  # Get days (without [0]!)
+    hour_diff = divmod(total_days[1], 3600)  # Use remainder of days to calc hours
+    minute_diff = divmod(hour_diff[1], 60)  # Use remainder of hours to calc minutes
+    sec_diff = divmod(minute_diff[1], 1)  # Use remainder of minutes to calc seconds
+    print("Time between dates: %d days, %d hours, %d minutes and %d seconds" % (
+    total_days[0], hour_diff[0], minute_diff[0], sec_diff[0]))
 
-    day_diff = anniversary.day - today.day
-    if day_diff < 0:
-        day_diff = 30 + anniversary.day - today.day
-    month_diff = anniversary.month - today.month - 1
-    if month_diff < -1:
-        month_diff += 12
-    elif month_diff == -1:
-        month_diff = 0
-
-    total_days = int(day_diff + ((month_diff / 2) * 30) + ((month_diff / 2) * 31))
-
-    hour_diff = anniversary.hour - today.hour
-    if hour_diff < 0:
-        hour_diff = (anniversary.hour - today.hour) + 23
-
-    minute_diff = anniversary.minute - today.minute
-    if minute_diff < 0:
-        minute_diff = 59 + anniversary.minute - today.minute
-
-    sec_diff = anniversary.second - today.second
-    if sec_diff < 0:
-        sec_diff = 59 + (anniversary.second - today.second)
-    print(month_diff, day_diff, hour_diff, minute_diff, sec_diff)
     return {
-        "day": str(total_days).zfill(2),
-        "hour": str(hour_diff).zfill(2),
-        "min": str(minute_diff).zfill(2),
-        "sec": str(sec_diff).zfill(2),
+        "day": (total_days[0]),
+        "hour": (hour_diff[0]),
+        "min": (minute_diff[0]),
+        "sec": (sec_diff[0]),
     }
