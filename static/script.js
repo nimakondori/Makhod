@@ -11,11 +11,11 @@ function Countdown() {
         document.getElementById('minutes').innerHTML = data.min;
         document.getElementById('secs').innerHTML = data.sec;
         if (data.day == 0 && data.hour == 0 && data.min == 0 && data.sec==0){
-            document.getElementById('days').innerHTML = ""
-            document.getElementById('hours').innerHTML = ""
-            document.getElementById('minutes').innerHTML = ""
-            document.getElementById('secs').innerHTML = ""
-            document.getElementById("button").style.display = "inline-block"
+            document.getElementById('days').style.visibility = "hidden"
+            document.getElementById('hours').style.visibility = "hidden"
+            document.getElementById('minutes').style.visibility = "hidden"
+            document.getElementById('secs').style.visibility = "hidden"
+            document.getElementById("button").style.visibility = "visible"
         }
 
     };

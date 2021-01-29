@@ -8,11 +8,11 @@ zone = "Amercia/Vancouver"
 
 def count_down(tz: timezone) -> dict:
     """ Function return days and time to next new year """
-    ANNIVERSARY_MONTH = 1
-    ANNIVERSARY_DAY = 29
+    ANNIVERSARY_MONTH = 2
+    ANNIVERSARY_DAY = 6
     tz = timezone(tz)
     print (tz)
-    anniversary = datetime(datetime.now(tz).year, ANNIVERSARY_MONTH, ANNIVERSARY_DAY, 0, 15,0,0)
+    anniversary = datetime(datetime.now(tz).year, ANNIVERSARY_MONTH, ANNIVERSARY_DAY, 0, 0,0,0)
     today = datetime.now()
     if today > anniversary:
         anniversary = datetime(datetime.now().year + 1, ANNIVERSARY_MONTH ,ANNIVERSARY_DAY ,0, 0, 0,0)
