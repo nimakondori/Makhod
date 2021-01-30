@@ -16,7 +16,8 @@ def lapse():
     if tz is None:
         return jsonify(count_down(zone))
     else:
-        return jsonify(count_down(tz))
+         return jsonify(count_down(tz))
+
 @app.route("/video")
 def video():
     return render_template("video.html")

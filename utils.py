@@ -32,8 +32,8 @@ def count_down(tz: timezone) -> dict:
     total_days[0], hour_diff[0], minute_diff[0], sec_diff[0]))
 
     return {
-        "day": (total_days[0]),
-        "hour": (hour_diff[0]),
-        "min": (minute_diff[0]),
-        "sec": (sec_diff[0]),
+        "day": str(int(total_days[0])),
+        "hour": str(int(hour_diff[0])),
+        "min": str(int(minute_diff[0])),
+        "sec": str(int(sec_diff[0])),
     }
