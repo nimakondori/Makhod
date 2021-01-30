@@ -9,7 +9,6 @@ function Countdown() {
         {
             var status = request.status;
             if (status === 0 || (status >= 200 && status < 400)) {
-                console.log(request.responseText)
                 data = JSON.parse(request.responseText)
                 document.getElementById('days').innerHTML = data.day;
                 document.getElementById('hours').innerHTML = data.hour;
