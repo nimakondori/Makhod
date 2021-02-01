@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makhodversary</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</head>
+
+<body>
+    <table class="table1">
+        <tr class="table1">
+            <td class="table1">
+    <div class="container">
+        <h1>
+            <a href="https://github.com/nimakondori/makhod/">
+                Countdown to Makhodversary
+            </a>
+        </h1>
+        <div>
+            <ul>
+                <li><span id="days"></span>days</li>
+                <li><span id="hours"></span>Hours</li>
+                <li><span id="minutes"></span>Minutes</li>
+                <li><span id="secs"></span>Seconds</li>
+            </ul>
+            <h1>{{ year }}</h1>
+        </div>
+    </div>
+    </td>
+</tr>
+<tr class="table2">
+    <td class="table2">
+        <a href="http://127.0.0.1:5000/makhod_video" ><div id="button" class="blackButton"><p class="whiteText">Press it</p></div></a>
+    </td>
+    </tr>    
+    </table>
+</body>
+</html>
