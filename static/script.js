@@ -2,8 +2,8 @@ var tz = Intl.DateTimeFormat().resolvedOptions().timeZone
 
 function Countdown() {
     const request = new XMLHttpRequest();
-    request.open("GET", `/time?tz=${tz}`);
-    request.send();
+    // request.open("GET", `/time?tz=${tz}`);
+    // request.send();
     request.onreadystatechange = (e) => {
         if (request.readyState == XMLHttpRequest.DONE)
         {
