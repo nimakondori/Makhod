@@ -13,7 +13,7 @@ def count_down(tz: timezone) -> dict:
     tz = timezone(tz)
     print (tz)
     anniversary = datetime(datetime.now().year, ANNIVERSARY_MONTH, ANNIVERSARY_DAY, 0, 0, 0, 0)
-    today = datetime.now()
+    today = datetime.now(tz=tz)
     # print(anniversary, today)
     timedelta = anniversary - today
     seconds_in_day = 24 * 60 * 60
