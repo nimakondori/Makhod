@@ -12,8 +12,8 @@ def count_down(tz: timezone) -> dict:
     ANNIVERSARY_DAY = 6
     tz = timezone(tz)
     print (tz)
-    anniversary = datetime(datetime.now(tz).year, ANNIVERSARY_MONTH, ANNIVERSARY_DAY, 0, 0, 0, 0)
-    today = datetime.now(tz)
+    anniversary = datetime(datetime.now().year, ANNIVERSARY_MONTH, ANNIVERSARY_DAY, 0, 0, 0, 0)
+    today = datetime.now()
     # print(anniversary, today)
     timedelta = anniversary - today
     seconds_in_day = 24 * 60 * 60
@@ -23,7 +23,7 @@ def count_down(tz: timezone) -> dict:
     duration_in_s = timedelta.total_seconds()
     total_days = divmod(duration_in_s, 86400)  # Get days (without [0]!)
     if int(total_days[0]) < 0:
-       anniversary = datetime(datetime.now(tz).year + 1, ANNIVERSARY_MONTH, ANNIVERSARY_DAY, 0, 0, 0, 0)
+       anniversary = datetime(datetime.now().year + 1, ANNIVERSARY_MONTH, ANNIVERSARY_DAY, 0, 0, 0, 0)
        timedelta = anniversary - today
        seconds_in_day = 24 * 60 * 60
        print("anniversary updated now it is ", anniversary)
