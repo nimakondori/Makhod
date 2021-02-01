@@ -15,8 +15,7 @@ def lapse():
     tz = request.args.get("tz")
     if tz is None:
         return jsonify(count_down(zone))
-    else:
-         return jsonify(count_down(tz))
+
 
 @app.route("/makhod_video")
 def video():
